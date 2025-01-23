@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제 - 그림과 같이 입력양식을 구현하시오.</title>
+  </head>
+  <body>
+    <h2>회원가입 폼</h2>
+    <form action="http://www.server.com">
+      <label for="name">이름 : </label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="이름을 입력하세요."
+      />
+      <br />
+      <label for="password">비밀번호 : </label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="비번을 입력하세요."
+      />
+      <br />
+      <label for="phonenum">핸드폰 : </label>
+      <input
+        type="text"
+        name="phonenum"
+        id="phonenum"
+        placeholder="핸드폰을 입력하세요."
+      />
+      <br />
+      <label for="email">이메일 : </label>
+      <input
+        type="text"
+        name="email"
+        id="email"
+        placeholder="이메일을 입력하세요."
+      />
+      <br />
+      <label for="gender">성별 </label>
+      <input type="radio" name="gender" id="man" checked />
+      <label for="man">남성</label>
+      <input type="radio" name="gender" id="woman" />
+      <label for="woman">여성</label>
+      <br />
+      <label for="hobby">취미 </label>
+      <input type="checkbox" name="checkbox" id="walking" />
+      <label for="walking">걷기</label>
+      <input type="checkbox" name="checkbox" id="running" checked />
+      <label for="running">달리기</label>
+      <input type="checkbox" name="checkbox" id="cycling" />
+      <label for="cycling">자전거타기</label>
+      <br />
+      <label for="city">사는 곳: </label>
+      <select name="city" id="city">
+        <option value="seoul" selected>서울</option>
+        <option value="jeju">제주</option>
+        <option value="busan">부산</option>
+      </select>
+      <br />
+      <input type="submit" name="register" id="register" value="회원가입" />
+    </form>
+  </body>
+</html>
