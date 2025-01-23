@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>타이머 관련 함수</title>
+  </head>
+  <body>
+    <script>
+      //setTimeout
+      setTimeout(() => {
+        console.log("타이머 3초 지남");
+      }, 3000);
+
+      //setInterval
+      setInterval(() => {
+        console.log("1초마다 수행");
+
+        //현재 시간 표시, 하지만 한국인이 보기엔 어려운 형식
+        // console.log(new Date());
+        let time = new Date().toTimeString().split(" ")[0];
+        let date = new Date().toISOString().split("T")[0];
+        console.log(date + " " + time);
+      }, 1000);
+    </script>
+  </body>
+</html>

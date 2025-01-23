@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수 Function</title>
+    <script>
+      //1. 매개 변수가 無/ 반환값 無
+      function myFunc1() {
+        console.log("myFunc1()");
+        return;
+      }
+      myFunc1();
+
+      //2. 매개 변수가 有 / 반환값 無
+      function myFunc2(param) {
+        console.log("myFunc2()" + param);
+        return;
+      }
+      myFunc2("홍길동");
+
+      //3. 매개 변수가 無 / 반환값 有
+      function myFunc3() {
+        return "홍길동";
+      }
+      const name = myFunc3(); //반환값을 받기 위한 대입 연산자
+      console.log(name);
+
+      //4. 매개 변수가 有 / 반환값 有
+      function myFunc4(param) {
+        return param * 2;
+      }
+      console.log(myFunc4(2));
+
+      //익명 함수로 함수의 이름이 없음
+      let varFunc = function () {
+        console.log("varFunc()");
+        return;
+      };
+
+      //호출시
+      varFunc();
+
+      //익명 함수를 화살표 연산자로
+      let varFunc2 = () => {
+        console.log("varFunc2()");
+        return;
+      };
+
+      varFunc2();
+
+      //화살표 연산자 + 매개변수
+      let varFunc3 = (param) => {
+        console.log(param);
+        return;
+      };
+      varFunc3("홍길동");
+
+      let sum = (param1, param2) => {
+        return param1 + param2;
+      };
+      let sub = (param1, param2) => {
+        return param1 - param2;
+      };
+      function calc(param1, param2, method) {
+        return method(param1, param2);
+      }
+      console.log(calc(10, 20, sum));
+      console.log(calc(10, 20, sub));
+    </script>
+  </head>
+  <body></body>
+</html>

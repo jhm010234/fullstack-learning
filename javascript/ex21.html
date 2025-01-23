@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열 선언 2</title>
+    <script>
+      //대괄호를 이용한 방법
+      let nums1 = [10, 20, 30];
+      let nums2 = [];
+      // nums2 = 10;
+      nums2.push(10);
+      nums2.push(20);
+      nums2.push(30);
+
+      //Array를 이용한 방법
+      //new: 객체를 생성시 사용하는 예약어
+      //객체(object) : 코드로 정의(클래스, 함수)된 메모리에 적재, 활성화된 상태(인스턴스)
+      //Array()를 생성자 함수라고도 함
+      let arr = new Array();
+      console.log(typeof arr);
+
+      //유전자 검사
+      console.log(arr instanceof Array);
+
+      arr.push("수박", "망고", "딸기", "바나나");
+      console.log(arr);
+
+      //길이가 5인 빈 배열
+      let arr2 = new Array(5);
+      console.log(arr2.length);
+      console.log(arr2[0]);
+
+      let arr3 = new Array(1, 2, 3, 4, 5);
+      console.log(arr3);
+
+      let arr4 = Array.of(5); //데이터 5 길이 1인 배열
+      console.log(arr4);
+
+      let arr5 = Array.of(1, 2, 3, 4, 5);
+      console.log(arr5);
+
+      let arr6 = Array.from("hello");
+      console.log(arr6);
+
+      //집합 set = 중복 허용을 하지 않는 자료구조, 순번(인덱스)가 없고 키 값도 없음
+      //중복되지 않은 데이터 : key rkqt, index 용도
+      let arr7 = Array.from(new Set([1, 2, 3]));
+      console.log(arr7);
+
+      //매핑 함수를 적용한 배열
+      //함수가 (1,2,3)과 (x)가 있다고 생각하면됨
+      //(x)을 매핑함수로 생각하면됨
+      //x에다가 순차적으로 1,2,3이 x에 온다고 생각하면됨
+      //1이 들어가면 2, 2들어가면 4, 3 들어가면 6이 들어가서 2,4,6이 됨
+      let arr8 = Array.from([1, 2, 3], (x) => x * 2);
+      console.log(arr8);
+
+      //연습문제
+      //1. Array.of를 사용하여 값 10, 20, 30, 40, 50이
+      // 포함된 배열을 생성하세요.
+      console.log("연습문제 1번");
+      let arr9 = Array.of(10, 20, 30, 40, 50);
+      console.log(arr9);
+
+      //2. Array.from을 사용하여 값이 모두 1로 초기화된
+      // 길이 5의 배열을 생성하세요.
+      console.log("연습문제 2번");
+      let arr10 = Array.from("11111");
+      console.log(arr10);
+      //3. Set을 활용한 중복 제거
+      //다음 배열에서 중복된 값을 제거한 새로운 배열을 생성하세요
+      console.log("연습문제 3번");
+      let nums = [5, 10, 5, 20, 10, 30];
+      let arr11 = Array.from(new Set(nums));
+      console.log(arr11);
+
+      //4. 배열 값 변환 (매핑 함수)
+      //숫자 배열 [1, 2, 3, 4, 5]를 생성하세요.
+      //각 값을 제곱한 새로운 배열을 Array.from의 매핑 함수를 사용하여 생성하세요.
+      console.log("연습문제 4번");
+      let arr12 = Array.from([1, 2, 3, 4, 5], (x) => x * x);
+      console.log(arr12);
+    </script>
+  </head>
+  <body></body>
+</html>

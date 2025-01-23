@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>입력폼 데이터 유효성 체크하기</title>
+    <script>
+      //통신 젆 ㅗ출
+      function checkValue() {
+        let inputName = document.getElementById("name");
+        if (inputName.value) {
+          //값 있으면
+          return true; //form 통신이 정상 수행됨
+        } else {
+          //값 없으면
+          alert("이름을 확인해주세요");
+          return false; // form 통신이 취소됨.
+        }
+      }
+
+      function checkValue2() {
+        let form = document.myFormName;
+        console.log(form);
+        let inputName = document.getElementById("name");
+        if (!inputName || inputName.length < 2) {
+          alert("이름이 비어있거나 올바르지 않습니다");
+          return;
+        }
+        //form 전송을 해준다
+        form.submit();
+
+        //fetch함수를 이용해서 직접 전송하는 방법
+        fetch("http://myserver.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            //JS객체론 문자열로 변환해주는 함수
+            name: "hong", //inputName.value
+            password: "1234", //inputPassword.value
+          }),
+        })
+          .then((res) => res.json()) //.json(): 문자열을 json 객체로 바꿔주는 함수
+          //JSON.stringift와 반대 역할
+          .then((data) => console.log(data), myFunc())
+          .catch((err) => console.error("Error", err));
+
+        function myFunc() {}
+      }
+    </script>
+  </head>
+  <body>
+    <form
+      id="myForm"
+      name="myFormName"
+      action="http://www.myserver.com"
+      onsubmit="return checkValue();"
+    >
+      <label for="name">이름</label><br />
+      <input type="text" id="name" name="name" /><br />
+      <label for="password">비밀번호</label><br />
+      <input type="password" id="password" name="password" /><br />
+      <label for="pass-check">비밀번호 확인</label><br />
+      <input type="passwrod" id="pass-check" name="pass-check" /><br />
+      <!-- <input type="submit" value="로그인" /><br /> -->
+      <button type="submit">로그인(submit)</button><br />
+      <button type="button" onclick="checkValue2()">로그인(button)</button>
+    </form>
+  </body>
+</html>

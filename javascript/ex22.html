@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열의 함수</title>
+    <script>
+      //배열의 선언
+      let arr0 = [];
+      let arr1 = [10, 20, 30]; //길이가 3인 배열
+      let arr2 = new Array();
+      let arr3 = new Array(5); //길이가 5인 배열
+      let arr4 = new Array(10, 20, 30); //길이가 3인 배열
+      let arr5 = Array.of("11111"); //길이:1 값: 11111
+      let arr6 = Array.from("11111"); // 길이: 5, 각 값: 1
+
+      arr0.push(10); //맨 뒤에 추가
+      arr0.unshift(0); // 맨 앞에 추가
+      console.log(arr0);
+
+      //지우고 추가(교체)
+      //인덱스 / 지우는 갯수 / 교체 값
+      //2니깐 11"1"11부터 2개를 지우고 => 111
+      //1121로 교체
+      arr6.splice(2, 2, "2");
+      console.log(arr6);
+
+      //지우고 empty로 남겨둠
+      delete arr6[1];
+      console.log(arr6);
+
+      //마지막 지우기
+      arr6.pop();
+      console.log(arr6);
+
+      //첫번째 지우기
+      arr6.shift();
+      console.log(arr6);
+
+      // 배열의 결합
+      let arrA = [10, 20, 30];
+      let arrB = [30, 40, 50];
+      let arrC = arrA.concat(arrB);
+      console.log(arrC);
+
+      //정렬
+      let arrD = [20, 10, 30, 40, 50];
+
+      //sortedArray는 주소 값을 지고 있지만
+
+      //원본 값을 이미 변경했기 때문에 같은 값을 가지고 있음
+      //원본을 저장시키고 싶으면 새로운 배열 공간을 만들어야 함
+      let orgArray = [...arrD];
+      let orgArray2 = Array.from(arrD);
+      arrD.sort();
+      console.log(arrD); // [10, 20, 30, 40, 50];
+      console.log(orgArray); //[20, 10, 30, 40, 50];
+      console.log(orgArray2); //[20, 10, 30, 40, 50];
+    </script>
+  </head>
+  <body></body>
+</html>

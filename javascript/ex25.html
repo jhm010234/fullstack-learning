@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS 객체</title>
+    <script>
+      //K-V 객체
+
+      //객체 선언
+      let object = {
+        apple: 1000,
+        banana: 2000,
+      };
+      console.log(object["apple"]); //복잡한 방법
+      console.log(object.banana);
+
+      let person = {
+        name: "홍길동",
+        age: 30,
+        action: () => {
+          console.log("액션배우입니다.");
+        },
+        obj: object,
+      };
+
+      person.action();
+
+      //연습문제
+      // student KV객체를 선언하고,
+      // 이 학생의 국어, 영어, 수학 성적을 각각 70, 80,90으로 설정하고,
+      // 합산과 평균을 내는 익명함수를 각각 sum, avr로 설정하고,
+      // 익명함수를 통해, sum과 avr값을 출력하시오.
+      // 그리고 국어,영어,수학 점수도 각각 출력하시오.
+      let student = {
+        kor: 70,
+        eng: 80,
+        mat: 90,
+        sum: (a, b, c) => {
+          return a + b + c;
+        },
+        avr: (a, b, c) => {
+          return (a + b + c) / 3;
+        },
+      };
+
+      console.log("국어 성적은 " + student.kor + "점 입니다.");
+      console.log("영어 성적은 " + student.eng + "점 입니다.");
+      console.log("수학 성적은 " + student.mat + "점 입니다.");
+      console.log(
+        "평균 점수는 " +
+          student.avr(student.kor, student.eng, student.mat) +
+          "점 입니다."
+      );
+
+      // let sumSc = (score1, score2, score3) => {
+      //   return score1 + score2 + score3;
+      // };
+
+      // let avr = () => {
+      //   return sumSc(student.kor, student.eng, student.mat) / 3;
+      // };
+
+      // console.log("국어 성적은 " + student.kor + "점 입니다.");
+      // console.log("영어 성적은 " + student.eng + "점 입니다.");
+      // console.log("수학 성적은 " + student.mat + "점 입니다.");
+      // console.log("평균 점수는 " + avr() + "점 입니다.");
+    </script>
+  </head>
+  <body></body>
+</html>

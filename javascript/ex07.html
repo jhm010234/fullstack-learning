@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>데이터 타입 - type(형)</title>
+    <script>
+      //선언만 하고(메모리에 공간만 들어가 있고) 값은 안 들어가 있는 상태
+      let undefinedType;
+      document.write(typeof undefinedType);
+
+      document.write(typeof num);
+
+      let number = 10;
+      document.write(typeof number);
+
+      let string = "자바스크립트";
+      document.write(typeof string + "<br>");
+
+      let boolean = true;
+      document.write(typeof boolean + "<br>");
+
+      let array = [10, 20, 30];
+      document.write(typeof array);
+
+      let object = { name: "홍길동", age: 30 };
+      document.write(typeof object);
+
+      function myFunc2() {
+        document.write("함수 호출됨!");
+      }
+      myFunc2();
+
+      let myFunc3 = () => {
+        document.write("함수 호출됨!");
+      };
+      myFunc3();
+
+      let myFunc = function () {
+        document.write("함수 호출됨!");
+      };
+      myFunc();
+    </script>
+  </head>
+  <body></body>
+</html>

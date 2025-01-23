@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제 - map, reduce</title>
+    <script>
+      //1번
+      const users = [
+        { id: 1, name: "Alice", age: 25 },
+        { id: 2, name: "Bob", age: 30 },
+        { id: 3, name: "Charlie", age: 35 },
+      ];
+
+      // 각 사용자의 이름만 추출한 배열을 생성하세요.
+      // 출력결과 :  ["Alice", "Bob", "Charlie"]
+
+      const userNames = users.map((user) => user.name);
+      console.log(userNames);
+
+      //2번
+      const prices = [100, 200, 300];
+      // 각 가격에 10%의 세금을 추가한 배열을 생성하세요.
+      // 출력결과 : [110, 220, 330]
+      const newPrice = prices.map((price) => price * 1.1);
+      console.log(newPrice);
+
+      //3번
+      const matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+      ];
+      // 각 숫자를 제곱한 1차원 배열을 만드세요.
+      //출력결과 : [1, 4, 9, 16, 25, 36, 49, 64, 81]
+      //힌트 : map함수 안에서 map함수 사용하기
+      const newMatrix = matrix.map((item) => {
+        const a = item.map((b) => b * b);
+      });
+      console.log(newMatrix);
+
+      //4번
+      const orders = [
+        { id: 1, items: [10, 20, 30] },
+        { id: 2, items: [5, 15] },
+        { id: 3, items: [100, 200] },
+      ];
+      // 각 주문의 ID와 총액(total)을 포함하는 배열을 만드세요.
+      //출력결과 : [{ id: 1, total: 60 }, { id: 2, total: 20 }, { id: 3, total: 300 }]
+      const newItems = orders.map((item) => {
+        const totalItems = item.items.reduce((sum, num) => sum + num, 0);
+        console.log(totalItems);
+
+        return {
+          id: item.id,
+          items: totalItems,
+        };
+      });
+
+      console.log(newItems);
+
+      //reduce 문을 사용한 연습문제
+      //5번
+
+      //reduce 함수를 이용하여, 35보다 큰 숫자의 갯수를 출력하시오.
+      // 출력예) 2
+      //6번
+      //2.reduce 함수를 이용하여, 배열의 문자열 길이를 구하시오.
+      const strings = ["hong", "lee", "imdan"];
+      //출력예) [4,3,5]
+    </script>
+  </head>
+  <body></body>
+</html>

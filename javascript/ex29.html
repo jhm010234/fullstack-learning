@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구조 분해 할당과 전개 연산자</title>
+    <script>
+      //구조 분해 할당 (비구조화 할당)
+
+      //1. 배열에서
+      let array1 = [10, 20, 30];
+      console.log(array1[0]);
+      let [a, b, c] = [10, 20, 30];
+      console.log(a);
+      console.log(b);
+      console.log(c);
+
+      //2. 전개 연산자
+      //x=10, y=20, rest(변수명) = 30,40,50
+      let [x, y, ...rest] = [10, 20, 30, 40, 50];
+      console.log(x);
+      console.log(y);
+      //3개라 rest는 배열이 됨
+      console.log(rest);
+
+      //3. 값 교환(swap) *한 줄 표현이 가능
+      let [i, j] = [10, 20];
+      //임시 변수를 만들어 3단계로 교환
+      let temp = i;
+      i = j;
+      j = temp;
+
+      //위 3줄을 1줄로 만들 수 있음
+      [i, j] = [j, i];
+      console.log(i, j);
+
+      //kv 객체의 구조 할당
+      let obj = {
+        apple: 1000,
+        banana: 2000,
+      };
+
+      //키로 값을 가져오기 때문에 위 이름과 똑같아야 함
+      //인덱스(순번 없음!)
+      let { apple, banana } = obj;
+      console.log(apple);
+      console.log(banana);
+
+      //새로운 이름으로 할당하는 방법
+      let { apple: f1, banana: f2 } = obj;
+      console.log(f1);
+      console.log(f2);
+
+      //하나만 가져오기
+      let { apple: newFruit } = obj;
+      console.log(newFruit);
+
+      //전개 연산자를 이용한 객체 생성
+      let pet = {
+        cat: 1000,
+        dog: 2000,
+        pig: 3000,
+      };
+
+      let ball = {
+        baseball: 1000,
+        soccor: 2000,
+        basketball: 3000,
+      };
+
+      let favorite = {
+        ...pet, //3개의 pet kv를 가져옴
+        ...ball, //3개의 ball kv를 가져옴
+        camping: 4000, //나만의 것도 만듬
+      };
+
+      console.log(favorite);
+
+      //객체 속성 제외
+      const { cat, ...rest2 } = pet;
+      console.log(cat);
+      console.log(rest2);
+
+      //함수 인자(argument)/매개 변수(parameter)로 전개 연산자 이용할 때
+      const nums = [10, 20, 30];
+      //x,y,z는 매개 변수
+      function sum(x, y, z) {
+        return x + y + z;
+      }
+      //...nums가 함수인자
+      console.log(sum(...nums));
+
+      //기본 값으로 설정할 때 전개 연산자 사용
+      const defaultSetting = { theme: "dark", showSidebark: true };
+      const userSetting = { showSidebark: false };
+      //kv가 겹치면 뒤에 ㄷ kv가 사용됨
+      const finalSetting = { ...defaultSetting, ...userSetting };
+      console.log(finalSetting);
+    </script>
+  </head>
+  <body></body>
+</html>

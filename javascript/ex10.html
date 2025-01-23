@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>형(type) 변환</title>
+    <script>
+      let num1 = 456;
+      document.write(typeof num1 + "<br>"); //number 타입
+      let str1 = String(num1);
+      document.write(typeof str1 + "<br>"); //string 타입
+
+      let str2 = "123";
+      document.write(typeof str2 + "<br>");
+      let num2 = Number(str2);
+      document.write(typeof num2 + "<br>");
+
+      // 예외적인 방법
+      let num3 = "123" * 1;
+      document.write(typeof num3 + "<br>");
+      let num4 = +"123";
+      document.write(typeof num4 + "<br>");
+
+      // 이전 방법
+      let str3 = "123.45";
+      let num5 = parseInt(str3); //정수로 변환 (소수점 없어짐)
+      let num6 = parseFloat(str3); //실수로 변환
+      document.write(num5 + "<br>");
+      document.write(num6 + "<br>");
+
+      let str4 = "abc";
+      let num7 = parseInt(str4);
+      document.write(num7 + "<br>");
+    </script>
+  </head>
+  <body></body>
+</html>

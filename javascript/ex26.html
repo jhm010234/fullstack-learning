@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클래스</title>
+    <script>
+      // 클래스 선언
+      // 클래스  = 변수 + 함수
+      // 대부분 첫 글자는 대문자!
+      class Person {
+        name = "홍길동"; //let, const 작성하지 않음~
+
+        // 클래스 안에 자기 변수를 이용시 this 사용
+        // function 붙이지 않음!
+        walk() {
+          console.log(this.name + "은 걷는다.");
+        }
+      }
+
+      //클래스 객체 선언
+      let person = new Person();
+      person.walk();
+
+      // 생성자 함수 : 객체 생성시 자동으로 호출되는 함수
+      // 용도 : 초기화
+      class Person2 {
+        constructor(name, age) {
+          console.log("constructor 호출됨.");
+          this.name = name;
+          //name과 this.name은 다름
+          this.age = age;
+        }
+      }
+      let person2 = new Person2("홍길동", 33);
+      console.log(person2.name);
+      console.log(person2.age);
+
+      //get, set 함수
+      class Person3 {
+        //name = ""; //set함수가 없으면 선은을 해야 함
+        constructor(name, age) {
+          //값을 초기화
+          console.log("생성자함수");
+
+          this.name = name;
+          this.age = age;
+        }
+        //get : 값을 읽어올 때
+        get name() {
+          console.log("get");
+          return this._name + "님 어서오세요~";
+          //위에 this.name과 같은 것임.
+          //get 함수에서는 "_"를 꼭 넣어줘야 함
+        }
+        set name(newValue) {
+          //if 안에 값만 넣는다면 null이 아닌걸 의미
+          // 즉 empty도 아닌 상태인가?
+          console.log("set");
+          if (newValue) {
+            if (String(newValue).length > 5) {
+              console.log("이름이 5글자 이상임.");
+            } else this._name = newValue;
+          }
+        }
+      }
+
+      let person3 = new Person3("변사또123", 37);
+      console.log(person3.name);
+      console.log(person3.age);
+    </script>
+  </head>
+  <body></body>
+</html>

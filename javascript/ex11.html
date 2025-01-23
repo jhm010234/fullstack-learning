@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연산자</title>
+    <script>
+      // 단항 연산자
+      // 메모리에 10만큼 차지
+      let i = 10;
+      i++;
+      document.write(i + "<br>");
+      i--;
+      document.write(i + "<br>");
+
+      let j = 10;
+      j++;
+      document.write(j + "<br>");
+      ++j;
+      document.write(j + "<br>");
+
+      j = 10;
+      document.write(j++ + "<br>");
+      document.write(j + "<br>");
+
+      j = 10;
+      document.write(++j + "<br>");
+
+      // 이항연산자
+      document.write(10 + 3 + "<br>");
+
+      // 나눗셈은 몫(/)과 나머지(%)가 나옴
+      //prettier-ignore
+      document.write(10 / 3 + "<br>");
+      document.write(Math.floor(10 / 3) + "<br>"); //소수점 버림 연산
+      document.write(10 % 3); //나머지 연산자
+
+      // 연산자 우선순위
+      //prettier-ignore
+      document.write(10 + 3 * 6 / 2 - 2 + "<br>");
+    </script>
+  </head>
+  <body></body>
+</html>

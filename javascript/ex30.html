@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map 함수</title>
+    <script>
+      let arr = [10, 20, 30, 40, 50];
+      //전체 요소 순환 (for 문)
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+      }
+      //let는 변수를 선언했을 때 바뀔거 같은지
+      //(ex. i는 계속 바뀌어야 함)
+      //const는 변경할 수 없는 3.14(파이)
+
+      //for of문
+      for (const item of arr) {
+        console.log(item);
+      }
+
+      //forEach 함수
+      arr.forEach(() => {});
+      arr.forEach(function () {});
+      //item : 해당 회차의 아이템
+      //index : 해당 회차의 인덱스
+      arr.forEach((item, index, array) => {
+        console.log(item);
+        console.log(index);
+        console.log(array);
+      });
+
+      //map함수를 이용한 전체 순환 : 원본은 건들지 않음
+      const newArr = arr.map((item) => {
+        //어떤 것을 리턴해줄지 정하는
+        return item * 2;
+      });
+      console.log(newArr);
+
+      //실행문이 한줄이면, 중괄호, return, 세미콜론 생략 가능.
+      const newArr2 = arr.map(
+        (item) =>
+          //어떤 것을 리턴해줄지 정하는
+          item * 2
+      );
+      console.log(newArr2);
+
+      let sqrt = arr.map(Math.sqrt);
+      console.log(sqrt);
+
+      let string = arr.map(String);
+      console.log(string);
+
+      let nums = string.map(Number);
+      console.log(nums);
+
+      //객체 배열에서 특정 값 추출
+      //객체가 여러개 들어가 있으면 배열이 됨
+      const users = [
+        { id: 1, name: "hong" },
+        { id: 2, name: "park" },
+        { id: 3, name: "lee" },
+      ];
+      const userNames = users.map((user) => user.name);
+      console.log(userNames);
+
+      //위에 문장이 어려울 경우
+      let newNames = [];
+      for (const user of users) {
+        newNames.push(user.name);
+      }
+      console.log(newNames);
+
+      //문자열 배열 반환
+      const upperNames = userNames.map((name) => name.toUpperCase());
+      console.log(upperNames);
+
+      //조건문 사용
+      const newArr3 = arr.map((number) => (number > 30 ? 1 : 0));
+      console.log(newArr3);
+    </script>
+  </head>
+  <body></body>
+</html>

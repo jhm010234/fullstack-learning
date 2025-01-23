@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //1. 반복변수 i를 1부터 10까지 출력하시오
+      document.write("1번" + "<br>");
+      for (let i = 1; i <= 10; i++) {
+        document.write(i + "   ");
+      }
+
+      //2. 1부터 10사이의 홀수만 출력하시오.
+      document.write("<br><br>");
+      document.write("2번" + "<br>");
+      for (let j = 1; j <= 10; j++) {
+        if (j % 2 == 1) {
+          document.write(j + "   ");
+        }
+      }
+
+      //3. 1부터 10사이의 3의 배수만 출력하시오. 3,6,9
+      document.write("<br><br>");
+      document.write("3번" + "<br>");
+      for (let k = 1; k <= 10; k++) {
+        if (k % 3 == 0) {
+          document.write(k + "   ");
+        }
+      }
+
+      //4. 1부터 100까지의 합을 출력하시오.
+      document.write("<br><br>");
+      document.write("4번" + "<br>");
+      //for 함수 안에 넣으면 계속 초기화 되니깐 조심하기!
+      let sum = 0;
+      for (let l = 1; l <= 100; l++) {
+        sum = sum + l;
+        //sum+l 먼저 계산되고, 그 다음에 sum에 값이 들어감
+      }
+      document.write(`1부터 100까지의 합: ${sum}`);
+
+      //5. 1부터 6사이의 랜덤수 10개를 출력하시오.
+      document.write("<br><br>");
+      document.write("5번" + "<br>");
+      for (let m = 1; m <= 10; m++) {
+        randomNum = Math.floor(Math.random() * 6 + 1);
+        document.write(randomNum);
+      }
+
+      //6. 1부터 100사이의 랜덤값을 100개 발생시키고,
+      //  그 중 가장 큰 수(Max)을 출력하시오.
+      document.write("<br><br>");
+      document.write("6번" + "<br>");
+
+      let max = 0;
+      for (let n = 1; n <= 100; n++) {
+        let randomMax = Math.floor(Math.random() * 100 + 1);
+        document.write(randomMax + "   ");
+        if (randomMax > max) {
+          max = randomMax;
+        }
+      }
+      document.write("<br>");
+      document.write(`가장 큰 수는 ${max} 입니다`);
+
+      // 중급
+      //7. 1부터 100까지의 소수의 갯수를 출력하시오.
+      //   소수 : 약수가 1과 자신인 수
+      //   약수 : 나누어 떨어지는 수
+      const list = [];
+      document.write("<br><br>");
+      document.write("7번" + "<br>");
+      for (let num2 = 2; num2 <= 100; num2++) {
+        let isPrime = true;
+        for (let o = 2; o <= Math.sqrt(num2); o++) {
+          if (num2 % o == 0) {
+            break;
+          } else list.push(num2);
+        }
+      }
+      document.write(list.length);
+
+      //8. 이번주 행운의 로또 숫자 6개를 출력하시오.
+      //   1부터 45까지의 랜덤한 수 6개를 뽑되
+      //   반복허용하지 않음. 재추첨 로직을 넣으시오.
+      //9. 주사위 2개 10번 던져서, 두 주사위 수를 합산한 다음
+      //   최소수와 최대수를 출력하시오.
+      document.write("<br><br>");
+    </script>
+  </head>
+  <body></body>
+</html>

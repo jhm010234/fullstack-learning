@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>innerHTML과 innerText</title>
+    <script></script>
+  </head>
+  <body>
+    <h1 id="id1">innerHTML의 내용</h1>
+    <h1 id="id2">innerText의 내용</h1>
+    <script>
+      //문서 객체를 id로 찾기
+      let e1 = document.getElementById("id1");
+      e1.innerHTML = "<ins>변경된</ins>";
+      e1.style.color = "red";
+
+      let e2 = document.getElementById("id2");
+      e2.innerText = "<ins>변경된</ins>";
+    </script>
+  </body>
+</html>
