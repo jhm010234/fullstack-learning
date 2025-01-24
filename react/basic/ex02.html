@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>순수 js로 html 만들기</title>
+  </head>
+  <body>
+    <p>순수 JS로 HTML 만들기</p>
+    <div id="root"></div>
+  </body>
+  <script>
+    //  <h1 class="greeting">Hello World!</h1>
+    // 1.js로 h1 문서 객체를 생성
+    const h1 = document.createElement("h1");
+    h1.className = "greeting";
+    h1.innerText = "Hello World!";
+
+    // 2.생성된 문서 객체를 root div에 추가
+    document.getElementById("root").appendChild(h1);
+  </script>
+</html>
