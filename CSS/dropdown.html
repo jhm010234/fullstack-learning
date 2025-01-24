@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hover Navigation Menu</title>
+    <style>
+      /* 기본 스타일 초기화 */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .nav {
+        width: 1100px;
+        background-color: #333;
+        padding: 0;
+        margin: 0 auto;
+      }
+
+      .nav-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      .nav-item {
+        position: relative;
+      }
+
+      .nav-item > a {
+        display: block;
+        padding: 15px 20px;
+        color: white;
+        text-decoration: none;
+      }
+
+      .nav-item > a:hover {
+        background-color: #555;
+      }
+      /* 드롭다운 메뉴 */
+      /* 드롭다운 메뉴 */
+      .dropdown {
+        position: fixed; /* 화면 전체를 기준으로 위치 */
+        top: 60px; /* nav 높이에 맞춰 드롭다운 아래로 배치 */
+        left: 0; /* 화면의 왼쪽 끝에서 시작 */
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: #444;
+        display: none;
+        z-index: 1000;
+        width: 100vw; /* 화면 전체 너비 */
+      }
+
+      .dropdown li {
+        width: auto; /* 항목 너비는 콘텐츠에 맞게 자동 조정 */
+      }
+
+      .dropdown a {
+        display: block;
+        padding: 10px 15px;
+        color: white;
+        text-decoration: none;
+        white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+      }
+
+      .dropdown a:hover {
+        background-color: #555;
+      }
+
+      /* 커서가 올라갔을 때 드롭다운 표시 */
+      .nav-item:hover .dropdown {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#">Menu 1</a>
+          <ul class="dropdown">
+            <li><a href="#">Submenu 1</a></li>
+            <li><a href="#">Submenu 2</a></li>
+            <li><a href="#">Submenu 3</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#">Menu 2</a>
+          <ul class="dropdown">
+            <li><a href="#">Submenu 1</a></li>
+            <li><a href="#">Submenu 2</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#">Menu 3</a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메가박스-영화</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%; /* 화면 전체를 채우도록 설정 */
+        overflow-x: hidden; /* 가로 스크롤 제거 */
+      }
+      body {
+        margin: 0 auto;
+      }
+      header {
+        width: 1100px;
+        margin: 0 auto;
+        position: relative;
+        background-image: url(logo_new2.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        display: block;
+      }
+      .header_top {
+        margin-top: 5px;
+        font-size: 13px;
+        color: #444444;
+        display: flex;
+        justify-content: space-between;
+      }
+      .header_top span {
+        text-align: center;
+        margin-left: 20px;
+      }
+      .header_top > .left > span:first-child {
+        margin-left: 0;
+      }
+      #top_nav {
+        color: #666666;
+        font-size: 15px;
+        text-decoration: none;
+        background-color: #f8f8fa;
+        border-top: 1px solid #503396;
+      }
+      #nav_text * {
+        margin-left: 10px;
+      }
+      #nav_text {
+        display: flex;
+        height: 42px;
+        left: 0;
+        width: 1100px;
+        align-items: center;
+        margin: 0 auto;
+      }
+      .home {
+        background-image: url(bg-location-home.png);
+        width: 13px;
+        height: 12px;
+      }
+      .header_bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .header_bottom_left {
+        display: flex;
+        align-items: center;
+      }
+      .header_bottom_left .logo {
+        margin: 0 5px;
+      }
+      .header_bottom_right .logo {
+        margin: 0 5px;
+      }
+      .header_bottom_right {
+        display: flex;
+        align-items: center;
+      }
+      .header_bottom_left span:nth-child(1) {
+        background-image: url(ico-sitemap.png);
+        background-repeat: no-repeat;
+        background-position: 0;
+      }
+      .header_bottom_left span:nth-child(2) {
+        background-image: url(ico-search.png);
+        background-repeat: no-repeat;
+        background-position: 0;
+        margin-right: 30px;
+      }
+      .header_bottom_right span:nth-child(4) {
+        background-image: url(ico-schedule.png);
+        background-repeat: no-repeat;
+        background-position: 0;
+        margin-left: 30px;
+      }
+      .header_bottom_right span:nth-child(5) {
+        background-image: url(ico-mymega.png);
+        background-repeat: no-repeat;
+        background-position: 0;
+      }
+
+      .header_bottom .logo {
+        display: flex;
+        width: 36px;
+        height: 36px;
+      }
+      .header_bottom .text {
+        font-family: "Nanum Gothic", serif;
+        font-weight: bold;
+        line-height: 40px;
+        font-size: 16px;
+        display: flex;
+        width: 100px;
+        justify-content: center;
+        font-weight: bold;
+        border-bottom: 5px solid transparent;
+        box-sizing: border-box; /* 패딩과 border를 포함 */
+      }
+      .header_bottom .text:hover {
+        border-bottom: 5px solid #339eb2; /* hover 시 border 색상 */
+        z-index: 50;
+      }
+      .dropdown {
+        position: fixed;
+        width: 100vw;
+        top: 70px;
+        left: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 40px;
+        line-height: 40px;
+        background-color: #339eb2;
+        display: none;
+        z-index: 5;
+      }
+
+      .dropdown ul {
+        margin: 0;
+        height: 40px;
+        line-height: 40px;
+      }
+
+      /* .header_bottom .text:nth-child(2) > ul {
+        transform: translateX(-600px);
+      } */
+
+      .dropdown li {
+        font-family: "Malgun Gothic";
+        display: inline-block;
+        align-items: center;
+        width: auto;
+      }
+      .dropdown a {
+        padding: 0 15px;
+        color: white;
+        text-decoration: none;
+        left: 60px;
+        font-size: 14px;
+      }
+      .dropdown a:hover {
+        text-decoration: underline;
+      }
+
+      /* 커서가 올라갔을 때 드롭다운 표시 */
+      .header_bottom:hover .dropdown {
+        display: block;
+      }
+      .content {
+        min-width: 1100px;
+        margin: 0 auto;
+      }
+      h3 {
+        font-family: "Nanum Gothic", serif;
+        font-weight: bold;
+        font-style: normal;
+        font-size: 26px;
+      }
+      .content {
+        width: 1100px;
+        margin: 0 auto;
+        padding: 10px 0;
+      }
+      .menulist ul {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        padding: 5px 0;
+      }
+      .menulist li {
+        flex: 1;
+        line-height: 40px;
+        height: 40px;
+        list-style: none;
+        font-size: 15px;
+        border-top: 1px solid #ebebeb;
+        border-bottom: 1px solid #503396;
+        border-left: 1px solid #ebebeb;
+        text-align: center;
+      }
+      .menulist a {
+        text-decoration: none;
+        color: #222222;
+      }
+      .menulist li:last-child {
+        border-right: 1px solid #ebebeb;
+      }
+      .menulist li:first-child {
+        border: 1px solid #503396;
+        border-bottom: none;
+      }
+      #focus {
+        color: #503396;
+        font-weight: bold;
+      }
+      .explain {
+        display: flex;
+        justify-content: space-between;
+        margin: 40px 0 15px 0;
+        font-family: "Nanum Gothic", serif;
+        font-size: 15px;
+      }
+      .explain_left {
+        display: flex;
+        padding-left: 10px;
+      }
+      .btn-onair {
+        font-family: "Nanum Gothic", serif;
+        display: block;
+        padding: 0 0 0 30px;
+        background: url(btn-on-air.png) no-repeat 0 2px;
+        border: none;
+        height: 20px;
+      }
+      .explain_left span {
+        margin-left: 20px;
+      }
+      .explain_right {
+        border: 1px solid #d8d9db;
+        display: flex;
+        width: 230px;
+        justify-content: space-between;
+        border-radius: 5px;
+      }
+      .explain_right input,
+      button {
+        height: 35px;
+      }
+      .explain_right input {
+        padding: 0 10px;
+        border: none;
+      }
+      .explain_right button {
+        background: #fff url(btn-search-input.png) no-repeat center;
+        width: 30px;
+        border: none;
+      }
+      .movie_list {
+        width: 1100px;
+        display: wrap;
+      }
+      .movie_list ol {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -60px;
+      }
+      .movie_list li {
+        width: 230px;
+        list-style: none;
+        margin-left: 60px;
+        position: relative;
+      }
+      .movie_list ol li:nth-child(4n) ~ li {
+        margin-top: 60px;
+      }
+      .movie_list ol li:nth-child(12n) ~ li {
+        margin-bottom: 150px;
+      }
+      .movie_image {
+        position: relative;
+        width: 230px;
+        height: 330px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+      }
+      .movie_image:hover {
+        z-index: 200;
+        background-color: #000000;
+        content: "";
+      }
+      .movie_image img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+      .movie_rank {
+        color: #ffffff;
+        font-style: italic;
+        text-shadow: 2px 2px 2px black;
+        font-size: 30px;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 5px;
+        left: 5px;
+        z-index: 2;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 220px;
+        height: 320px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 4;
+        font-size: 15px;
+      }
+      .movie_image:hover .overlay {
+        opacity: 1; /* 마우스 오버 시 오버레이 표시 */
+      }
+      .movie_grade_all {
+        background-image: url(ALL_46x46.png);
+        background-size: 23px 23px;
+        width: 23px;
+        height: 23px;
+        align-items: center;
+      }
+      .movie_grade_15 {
+        background-image: url(15_46x46.png);
+        background-size: 23px 23px;
+        width: 23px;
+        height: 23px;
+        align-items: center;
+      }
+      .movie_grade_19 {
+        background-image: url(19_46x46.png);
+        background-size: 23px 23px;
+        width: 23px;
+        height: 23px;
+        align-items: center;
+      }
+      .movie_explain {
+        width: 230px;
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+      }
+      .movie_title {
+        margin-left: 10px;
+        font-size: 18px;
+        font-family: "Nanum Gothic", serif;
+        font-weight: 500;
+      }
+      .movie_text {
+        display: flex;
+        font-size: 14px;
+        font-family: "Nanum Gothic", serif;
+        width: auto;
+        margin: 10px 0;
+      }
+      .percent {
+        padding-right: 5px;
+        border-right: 1px solid #ccc;
+      }
+      .date {
+        padding: 0 5px;
+      }
+      .movie_button {
+        display: flex;
+      }
+      .button {
+        width: 72px;
+        height: 36px;
+        border-radius: 5px;
+        border: none;
+        background-color: #503396;
+        color: #ffffff;
+        font-size: 15px;
+        margin-left: 5px;
+      }
+      .button:first-child {
+        margin-left: 0;
+      }
+      .buttin:first-child {
+        margin-left: 0;
+      }
+      .heart {
+        font-size: 13px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        color: #503396;
+        padding: 0 5px;
+      }
+      .heart_image {
+        padding-left: 17px;
+        background-image: url(ico-heart-toggle-gray.png);
+        background-repeat: no-repeat;
+        width: 17px;
+        height: 15px;
+        margin-right: 4px;
+      }
+      .heart_image span:nth-child(2) {
+        padding-left: 5px;
+      }
+      .dolby {
+        background-image: url(mov_list_db_btn.png);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      footer {
+        height: 200px;
+        background-color: #f8f8fa;
+      }
+      .footer_top {
+        margin: 0 auto;
+        padding: 30px 0;
+        width: 1100px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer_list ul {
+        display: flex;
+        padding: 0;
+      }
+      .footer_list li {
+        left: 0;
+        padding-right: 10px;
+        list-style: none;
+        font-size: 13px;
+        color: #666666;
+        font-family: "Nanum Gothic", serif;
+      }
+      .footer_list li:nth-child(6),
+      .footer_list li:nth-child(7) {
+        font-weight: bold;
+        color: #000000;
+      }
+      .footer_bottom {
+        display: flex;
+      }
+      .footer_logo {
+        margin-right: 20px;
+        display: block;
+        background-image: url(logo-opacity_new2.png);
+        width: 150px;
+        height: 50px;
+        background-repeat: no-repeat;
+      }
+      .find_theater {
+        width: 106px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        border: 1px solid #d8d9db;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .bottom_search_logo {
+        background-image: url(ico-footer-search.png);
+        width: 15px;
+        height: 15px;
+        background-repeat: no-repeat;
+        padding-left: 10px;
+      }
+      .find_theater a {
+        text-decoration: none;
+        color: #666666;
+        font-size: 13px;
+        font-family: "Nanum Gothic", serif;
+      }
+      .footer_bottom {
+        margin: 0 auto;
+        width: 1100px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer_text {
+        display: flex;
+        flex-direction: column;
+        font-size: 13px;
+      }
+      .footer_icon {
+        display: flex;
+      }
+      .footer_icon > div {
+        margin-left: 5px;
+      }
+      .youtube {
+        background-image: url(ico-youtubeN.png);
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+      }
+      .instagram {
+        background-image: url(ico-instagramN.png);
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+      }
+      .facebook {
+        background-image: url(ico-facebookN.png);
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+      }
+      .twitter {
+        background-image: url(ico-twitterN.png);
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header_top">
+        <div class="header_top left">
+          <span>VIP LOUNGE</span>
+          <span>멤버십</span>
+          <span>고객센터</span>
+        </div>
+        <div class="header_top right">
+          <span>로그인</span>
+          <span>회원가입</span>
+          <span>빠른예매</span>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="header_bottom_left">
+          <span class="logo"> </span>
+          <span class="logo"> </span>
+          <div class="text">
+            영화
+            <div class="dropdown">
+              <ul>
+                <li><a href="#">전체영화</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="text">
+            예매
+            <ul class="dropdown">
+              <li><a href="#">빠른예매</a></li>
+              <li><a href="#">상영시간표</a></li>
+              <li><a href="#">더 부티크 프라이빗 예매</a></li>
+            </ul>
+          </div>
+
+          <div class="text">
+            극장
+            <ul class="dropdown">
+              <li><a href="#">전체극장</a></li>
+              <li><a href="#">특별관</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="header_bottom_right">
+          <div class="text">
+            이벤트
+            <ul class="dropdown">
+              <li><a href="#">진행중 이벤트</a></li>
+              <li><a href="#">지난 이벤트</a></li>
+              <li><a href="#">당첨자 발표</a></li>
+            </ul>
+          </div>
+          <div class="text">스토어</div>
+          <div class="text">혜택
+            <ul class="dropdown">
+              <li><a href="#">메가박스 멤버쉽</a></li>
+              <li><a href="#">제휴/할인</a></li>
+          </div>
+          <span class="logo"> </span>
+          <span class="logo"> </span>
+        </div>
+      </div>
+    </header>
+    <div id="main">
+      <div id="top_nav">
+        <div id="nav_text">
+          <span class="icon home"></span>
+          <span>></span>
+          <div>영화</div>
+          <span>></span>
+          <div>전체영화</div>
+        </div>
+      </div>
+      <div class="content">
+        <h3>전체영화</h3>
+        <div class="menulist">
+          <ul>
+            <li><a href="#" id="focus">박스오피스</a></li>
+            <li><a href="#">상영예정작</a></li>
+            <li><a href="#">단독</a></li>
+            <li><a href="#">필름소사이어티</a></li>
+            <li><a href="#">클래식소사이어티</a></li>
+          </ul>
+        </div>
+        <div class="explain">
+          <div class="explain_left">
+            <button class="btn-onair">개봉작만</button>
+            <span>88개의 영화가 검색되었습니다.</span>
+          </div>
+          <div class="explain_right">
+            <input type="text" name="" placeholder="영화명 검색" />
+            <button></button>
+          </div>
+        </div>
+        <div class="movie_list">
+          <ol>
+            <li id="movie">
+              <div class="movie_rank">1</div>
+              <div class="movie_image">
+                <img src="veoYkRw8THPbrE9FobWUP1BVmEbMOXnp_420.jpg" />
+                <div class="overlay">
+                  “연주할 때만 느껴지는 감정이 있거든. 그게 널 만나면 느껴져”
+                  유학 중이던 피아니스트 유준은 팔목 치료를 위해 한국에 교환
+                  학생으로 오게 된다...
+                </div>
+              </div>
+              <div class="movie_explain">
+                <div class="title">
+                  <div class="movie_grade_all"></div>
+                  <div class="movie_title">말할 수 없는 비밀</div>
+                </div>
+
+                <div class="movie_text">
+                  <div class="percent">예매율 30.3%</div>
+                  <div class="date">개봉일 2025.01.28</div>
+                </div>
+              </div>
+              <div class="movie_button">
+                <button class="heart button">
+                  <span class="heart_image"></span>
+                  <span>660</span>
+                </button>
+
+                <button class="buy button">예매</button>
+                <button class="dolby button"></button>
+              </div>
+            </li>
+            <li id="movie">
+              <div class="movie_rank">2</div>
+              <div class="movie_image">
+                <img src="0XDjkXDLm7waDVJ9leltSNNBOrEpLGEU_420.jpg" />
+                <div class="overlay">
+                  금지된 곳으로 갈 준비가 되었습니다. ‘유니아’ 수녀(송혜교)는
+                  ‘희준’(문우진)의 몸에 숨어든 악령이 12형상 중 하나라고
+                  확신한다. 당장 올 수 없는 구마 사제를 기다리다가 부마자가
+                  희생될 것이 분명한 상황. 결국 ‘유니아’는 소년을 구하기 위해
+                  ‘서품을 받지 못한 수녀는 구마를 할 수 없다’는 금기를 깨기로
+                  결심한다.
+                </div>
+              </div>
+              <div class="movie_explain">
+                <div class="title">
+                  <div class="movie_grade_15"></div>
+                  <div class="movie_title">검은 수녀들</div>
+                </div>
+
+                <div class="movie_text">
+                  <div class="percent">예매율 13.2%</div>
+                  <div class="date">개봉일 2025.01.24</div>
+                </div>
+              </div>
+              <div class="movie_button">
+                <button class="heart button">
+                  <span class="heart_image"></span>
+                  <span>349</span>
+                </button>
+
+                <button class="buy button">예매</button>
+                <button class="dolby button"></button>
+              </div>
+            </li>
+            <li id="movie">
+              <div class="movie_rank">3</div>
+              <div class="movie_image">
+                <img src="WAC0I4UtsbCRjs4IvT4Vht9QYvdRTnDD_420.jpg" />
+                <div class="overlay">
+                  ‘HITMAN IS BACK!’ 대한민국을 포복절도하게 만든 암살요원,
+                  이번엔 ‘암살요인 준’으로 돌아왔다! 욱해서 그린 웹툰 '암살요원
+                  준'의 성공으로 잠깐 흥행 작가가 된 '준'은 시즌2 연재 시작과
+                  동시에 '뇌절작가'로 전락하고,
+                </div>
+              </div>
+              <div class="movie_explain">
+                <div class="title">
+                  <div class="movie_grade_15"></div>
+                  <div class="movie_title">히트맨2</div>
+                </div>
+
+                <div class="movie_text">
+                  <div class="percent">예매율 9.2%</div>
+                  <div class="date">개봉일 2025.01.22</div>
+                </div>
+              </div>
+              <div class="movie_button">
+                <button class="heart button">
+                  <span class="heart_image"></span>
+                  <span>159</span>
+                </button>
+
+                <button class="buy button">예매</button>
+                <button class="dolby button"></button>
+              </div>
+            </li>
+            <li id="movie">
+              <div class="movie_rank">4</div>
+              <div class="movie_image">
+                <img src="voFgSlrB9J2LLJqj7p6L6Zx03X3qFf6O_420.jpg" />
+                <div class="overlay">
+                  1908년 함경북도 신아산에서 안중근이 이끄는 독립군들은
+                  일본군과의 전투에서 큰 승리를 거둔다. 대한의군 참모중장
+                  안중근은 만국공법에 따라 전쟁포로인 일본인들을 풀어주게 되고,
+                  이 사건으로 인해 독립군 사이에서는 안중근에 대한 의심과 함께
+                  균열이 일기 시작한다.
+                </div>
+              </div>
+              <div class="movie_explain">
+                <div class="title">
+                  <div class="movie_grade_15"></div>
+                  <div class="movie_title">하얼빈</div>
+                </div>
+
+                <div class="movie_text">
+                  <div class="percent">예매율 7.3%</div>
+                  <div class="date">개봉일 2025.12.24</div>
+                </div>
+              </div>
+              <div class="movie_button">
+                <button class="heart button">
+                  <span class="heart_image"></span>
+                  <span>1.4k</span>
+                </button>
+
+                <button class="buy button">예매</button>
+                <button class="dolby button"></button>
+              </div>
+            </li>
+            <li id="movie">
+              <div class="movie_rank">5</div>
+              <div class="movie_image">
+                <img src="nj18f6ZDFpLxKy433HhWPsP39RPpTFrM_420.jpg" />
+                <div class="overlay">
+                  희망 없는 인생, 기회는 바로 그 곳에 있었다. 1997년 IMF의
+                  후폭풍을 피하지 못한 국희(송중기)와 가족들은 지구 반대편
+                  콜롬비아 보고타로 향한다. 낯선 땅에서 살아남기 위해, 한인
+                  상인회의 권력을 쥔 박병장(권해효) 밑에서 일을 시작한 국희.
+                </div>
+              </div>
+              <div class="movie_explain">
+                <div class="title">
+                  <div class="movie_grade_15"></div>
+                  <div class="movie_title">보고타: 마지막 기회의 땅</div>
+                </div>
+
+                <div class="movie_text">
+                  <div class="percent">예매율 7.3%</div>
+                  <div class="date">개봉일 2025.12.31</div>
+                </div>
+              </div>
+              <div class="movie_button">
+                <button class="heart button">
+                  <span class="heart_image"></span>
+                  <span>337</span>
+                </button>
+
+                <button class="buy button">예매</button>
+                <button class="dolby button"></button>
+              </div>
+            </li>
+            <li id="movie">
+              <div class="movie_rank">6</div>
+              <div class="movie_image">
+                <img src="Al3mUTVbHgJTAfiOGmFUOmMCBvlq1z27_420.jpg" />
+                <div class="overlay">
+                  “기대에 부응해야지?” 엄마 옥자의 열성과 본인의 타고난 욕심으로
+                  교육 1번지 서울 대치동으로 위장 전입한 도현. 벤츠타고 다니는
+                  부자이면서 장애 혜택을 받아먹던 친구에게 교환학생의 기회마저
+                  뺏기고, 그 친구가 진짜 장애인이 아니었단 걸 알게 된 그 때부터
+                  정부 지원금의 맹점에 눈을 뜬다.
+                </div>
+              </div>
+              <div class="movie_explain">
+                <div class="title">
+                  <div class="movie_grade_15"></div>
+                  <div class="movie_title">폭락</div>
+                </div>
+
+                <div class="movie_text">
+                  <div class="percent">예매율 5.6%</div>
+                  <div class="date">개봉일 2025.01.15</div>
+                </div>
+              </div>
+              <div class="movie_button">
+                <button class="heart button">
+                  <span class="heart_image"></span>
+                  <span>84</span>
+                </button>
+
+                <button class="buy button">예매</button>
+                <button class="dolby button"></button>
+              </div>
+            </li>
+            <li id="movie">
+              <div class="movie_rank">7</div>
+              <div class="movie_image">
+                <img src="c97arNNJEKGHQvkBVkDruzsIrkGxL3EZ_420.jpg" />
+                <div class="overlay">
+                  “연주할 때만 느껴지는 감정이 있거든. 그게 널 만나면 느껴져”
+                  유학 중이던 피아니스트 유준은 팔목 치료를 위해 한국에 교환
+                  학생으로 오게 된다...
+                </div>
+              </div>
+              <div class="movie_explain">
+                <div class="title">
+                  <div class="movie_grade_19"></div>
+                  <div class="movie_title">동화지만 청불입니다</div>
+                </div>
+
+                <div class="movie_text">
+                  <div class="percent">예매율 5%</div>
+                  <div class="date">개봉일 2025.01.08</div>
+                </div>
+              </div>
+              <div class="movie_button">
+                <button class="heart button">
+                  <span class="heart_image"></span>
+                  <span>250</span>
+                </button>
+
+                <button class="buy button">예매</button>
+                <button class="dolby button"></button>
+              </div>
+            </li>
+            <li id="movie">
+              <div class="movie_rank">8</div>
+              <div class="movie_image">
+                <img src="FXR5TauIKb7ikPwpomWVsjTJ1l8pzxxu_420.jpg" />
+                <div class="overlay">
+                  “연주할 때만 느껴지는 감정이 있거든. 그게 널 만나면 느껴져”
+                  유학 중이던 피아니스트 유준은 팔목 치료를 위해 한국에 교환
+                  학생으로 오게 된다...
+                </div>
+              </div>
+              <div class="movie_explain">
+                <div class="title">
+                  <div class="movie_grade_15"></div>
+                  <div class="movie_title">렛 미 인</div>
+                </div>
+
+                <div class="movie_text">
+                  <div class="percent">예매율 2.9%</div>
+                  <div class="date">개봉일 2025.01.15</div>
+                </div>
+              </div>
+              <div class="movie_button">
+                <button class="heart button">
+                  <span class="heart_image"></span>
+                  <span>500</span>
+                </button>
+
+                <button class="buy button">예매</button>
+                <button class="dolby button"></button>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer_top">
+        <div class="footer_list">
+          <ul>
+            <li>회사소개</li>
+            <li>인재채용</li>
+            <li>사회공헌</li>
+            <li>제휴/광고/부대사업문의</li>
+            <li>이용약관</li>
+            <li>위치기반서비스 이용약관</li>
+            <li>개인정보처리방침</li>
+            <li>윤리경영</li>
+          </ul>
+        </div>
+        <div class="find_theater">
+          <div class="bottom_search_logo"></div>
+          <a href="#">극장찾기</a>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <div class="footer_logo"></div>
+        <div class="footer_text">
+          <span
+            >서울특별시 강남구 테헤란로 87길 22 도심공항터미널 건물 408호 ARS
+            1544-0070 대표이메일 m.dreamcenter@partner.megabox.co.kr</span
+          >
+          <span
+            >대표자명 홍정인, 남용석 · 개인정보보호책임자 강병철 ·
+            사업자등록번호 211-86-59478 · 통신판매업신고번호
+            2023-서울성동-0177</span
+          >
+          <span>COPYRIGHT © MegaboxJoongAng, Inc. All rights reserved</span>
+        </div>
+        <div class="footer_icon">
+          <div class="youtube"></div>
+          <div class="instagram"></div>
+          <div class="facebook"></div>
+          <div class="twitter"></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>텍스트나 콘텐츠의 정렬 - text-align</title>
+    <style>
+      .box {
+        border: 1px solid red;
+      }
+      .text-left {
+        text-align: left;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-right {
+        text-align: right;
+      }
+      .text-justify {
+        text-align: justify;
+      }
+      div {
+        border: 1px solid green;
+      }
+      .box2 {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 1px solid blue;
+      }
+      .baseline {
+        vertical-align: baseline;
+      }
+      .top {
+        vertical-align: top;
+      }
+      .middle {
+        vertical-align: middle;
+      }
+      .bottom {
+        vertical-align: bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box text-left">왼쪽 정렬</div>
+    <div class="box text-center">가운데 정렬</div>
+    <div class="box text-right">오른쪽 정렬</div>
+    <div class="box text-justify">
+      양쪽 정렬Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+      Deleniti consequatur consequuntur praesentium, repudiandae eum aut
+      delectus porro, inventore quidem nobis architecto sed! Esse quisquam
+      temporibus doloremque impedit eos consectetur quod.
+    </div>
+
+    <div>
+      <span class="box2 baseline">Baseline</span>
+      <span class="box2 top">Top</span>
+      <span class="box2 middle">Middle</span>
+      <span class="box2 bottom">Bottom</span>
+    </div>
+  </body>
+</html>

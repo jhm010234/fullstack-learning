@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- ex73 -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 32px;
+        font-weight: bold;
+      }
+      .wrap {
+        display: flex; /* display: flex */
+        flex-wrap: wrap; /* 자동 개행 */
+      }
+      .wrap > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* pc버젼 : 기본값 */
+      .header {
+        background-color: lime;
+        height: 100px;
+        flex: 1 100%;
+      }
+      .section1 {
+        background-color: coral;
+        height: 200px;
+        flex: 1 50%;
+      }
+      .section2 {
+        background-color: lightpink;
+        height: 200px;
+        flex: 1 50%;
+      }
+      .section3 {
+        background-color: lightskyblue;
+        height: 200px;
+        flex: 1 50%;
+      }
+      .section4 {
+        background-color: lightblue;
+        height: 200px;
+        flex: 1 50%;
+      }
+      .ad {
+        background-color: plum;
+        flex: 1 50%;
+        height: 100px;
+      }
+      .info {
+        background-color: darkcyan;
+        flex: 1 50%;
+        height: 100px;
+      }
+      .footer {
+        background-color: lightgreen;
+        flex: 1 100%;
+        height: 100px;
+      }
+
+      /* 태블릿 */
+      @media screen and (min-width: 768px) and (max-width: 959px) {
+        .header {
+          background-color: lime;
+          height: 100px;
+          flex: 1 80%;
+          order: 0;
+        }
+        .section1 {
+          background-color: coral;
+          height: 100px;
+          flex: 1 100%;
+          order: 2;
+        }
+        .section2 {
+          background-color: lightpink;
+          height: 100px;
+          flex: 1 100%;
+          order: 3;
+        }
+        .section3 {
+          background-color: lightskyblue;
+          height: 100px;
+          flex: 1 100%;
+          order: 4;
+        }
+        .section4 {
+          background-color: lightblue;
+          height: 100px;
+          flex: 1 100%;
+          order: 5;
+        }
+        .ad {
+          background-color: plum;
+          flex: 1 20%;
+          height: 100px;
+          order: 1;
+        }
+        .info {
+          background-color: darkcyan;
+          flex: 1 30%;
+          height: 100px;
+          order: 6;
+        }
+        .footer {
+          background-color: lightgreen;
+          flex: 1 70%;
+          height: 100px;
+          order: 7;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .header {
+          background-color: lime;
+          height: 100px;
+          flex: 1 100%;
+          order: 0;
+        }
+        .section1 {
+          background-color: coral;
+          height: 200px;
+          flex: 1 50%;
+          order: 1;
+        }
+        .section2 {
+          background-color: lightpink;
+          height: 200px;
+          flex: 1 50%;
+          order: 2;
+        }
+        .section3 {
+          background-color: lightskyblue;
+          height: 200px;
+          flex: 1 50%;
+          order: 3;
+        }
+        .section4 {
+          background-color: lightblue;
+          height: 200px;
+          flex: 1 50%;
+          order: 4;
+        }
+        .ad {
+          background-color: plum;
+          flex: 1 30%;
+          height: 100px;
+          order: 5;
+        }
+        .info {
+          background-color: darkcyan;
+          flex: 1 70%;
+          height: 100px;
+          order: 6;
+        }
+        .footer {
+          background-color: lightgreen;
+          flex: 1 100%;
+          height: 100px;
+          order: 7;
+        }
+      }
+
+      /* 모바일 */
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="header">
+        <p>헤더</p>
+      </div>
+      <div class="section1">
+        <p>섹션1</p>
+      </div>
+      <div class="section2">
+        <p>섹션2</p>
+      </div>
+      <div class="section3">
+        <p>섹션3</p>
+      </div>
+      <div class="section4">
+        <p>섹션4</p>
+      </div>
+      <div class="ad">
+        <p>광고</p>
+      </div>
+      <div class="info">
+        <p>정보</p>
+      </div>
+      <div class="footer">
+        <p>푸터</p>
+      </div>
+    </div>
+  </body>
+</html>

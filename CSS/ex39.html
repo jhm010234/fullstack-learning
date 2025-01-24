@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>img 태그에서 이미지 배치 - object-fit</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 2px solid red;
+      }
+      .img1 {
+        object-fit: none;
+      }
+      .img2 {
+        object-fit: fill;
+      }
+      .img3 {
+        object-fit: contain;
+      }
+      .img4 {
+        object-fit: cover;
+      }
+      .img4 {
+        object-fit: scale-down;
+      }
+    </style>
+  </head>
+  <body>
+    <div><img src="bg.jpg" class="box img1" /></div>
+    <div><img src="bg.jpg" class="box img2" /></div>
+    <div><img src="bg.jpg" class="box img3" /></div>
+    <div><img src="bg.jpg" class="box img4" /></div>
+    <div><img src="bg.jpg" class="box img5" /></div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변환효과 - transition</title>
+  </head>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      /* 모든 속성, 2초 동안, 이 코드가 없으면 투박하게 바뀜 */
+      transition: all 2s;
+    }
+    .box:hover {
+      width: 200px;
+      height: 200px;
+    }
+    .box:active {
+      background-color: red;
+      opacity: 0.8;
+      font-size: 32px;
+      border: 20px solid green;
+    }
+  </style>
+  <body>
+    <div class="box">클릭</div>
+  </body>
+</html>

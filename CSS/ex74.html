@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>벤더 프리픽스</title>
+    <script src="prefixfree.min.js"></script>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+
+        /* 크롬과 사파리 4.0 이상을 위한 코드 */
+        background: -webkit-linear-gradient(red, yellow);
+
+        /* 파이어폭스 3.6이상을 위한 코드 */
+        background: -moz-linear-gradient(red, yellow);
+
+        /* css 표준 문법 */
+        background: linear-gradient(red, yellow);
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상태선택자</title>
+    <style>
+      input:enabled {
+        background-color: red;
+      }
+      input:disabled {
+        background-color: darkcyan;
+      }
+      input[type="checkbox"]:checked {
+        outline: 2px solid red;
+      }
+      input:focus {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>활성화 상태</h1>
+    <input type="text" />
+
+    <h1>비활성화 상태</h1>
+    <input type="text" disabled />
+
+    <h1>체크박스</h1>
+    <input type="checkbox" id="ck" checked />
+    <label for="ck">체크박스</label>
+    <br />
+
+    <input type="radio" id="rd" checked />
+    <label for="ck">라디오버튼</label>
+    <br />
+
+    <select id="select">
+      <option value="coke">콜라</option>
+      <option value="cider" selected>사이다</option>
+    </select>
+  </body>
+</html>
