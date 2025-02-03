@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>set 자료형의 응용</title>
+    <script>
+      const people = {
+        이호준: "01050442903",
+        이호상: "01051442904",
+        이준호: "01050342904",
+        이호준: "01050442903",
+        이준: "01050412904",
+        이호: "01050443904",
+        이호준: "01050442903",
+      };
+
+      let mySet = new Set();
+
+      for (let key in people) {
+        mySet.add(key);
+      }
+
+      console.log(`총 ${mySet.size}명이 접수했습니다`);
+    </script>
+  </head>
+  <body></body>
+</html>

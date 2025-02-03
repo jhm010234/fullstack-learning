@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2020년</title>
+    <script>
+      let month = Number(prompt("월을 입력하세요"));
+      let dates = Number(prompt("일을 입력해주세요"));
+
+      console.log(`${month}월 ${dates}일`);
+
+      function solution(a, b) {
+        const newDate = new Date("2020-" + a + "-" + b);
+        console.log(newDate);
+
+        let day = ["MON", "TUE", "WED", "THR", "FRI", "SAT", "SUN"];
+
+        return day[newDate.getDate()];
+      }
+
+      console.log(solution(month, dates));
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>놀이동산에 가자</title>
+    <script>
+      let limit = Number(prompt("제한 무게를 입력해주세요"));
+      let count = Number(prompt("친구들의 수를 적어주세요"));
+
+      let num = [];
+
+      for (i = 0; i < count; i++) {
+        let weight = Number(prompt("친구들의 몸무게를 적어주세요"));
+        num.push(weight);
+      }
+      console.log(num);
+
+      let sum = 0;
+      let result = [];
+      for (i = 0; i < num.length; i++) {
+        sum = sum + num[i];
+        if (sum < limit) {
+          result.push(result[i]);
+        }
+      }
+      console.log(result.length);
+
+      //50 5 20 20 20 20 20
+    </script>
+  </head>
+  <body></body>
+</html>

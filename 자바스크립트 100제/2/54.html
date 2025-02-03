@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연속되는 수</title>
+    <script>
+      let number = prompt("숫자들을 입력하세요.").split(" ");
+      let i;
+      for (i = 0; i < number.length; i++) {
+        let num1 = Number(number[0]) + 1;
+        let num2 = Number(number[i + 1]);
+
+        if (num1 === num2) {
+          console.log("YES");
+        } else {
+          console.log("NO");
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

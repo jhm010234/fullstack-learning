@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>호준이의 아르바이트</title>
+    <script>
+      let array = prompt("학생들의 점수를 공백으로 구분하여 입력하시오")
+        .split(" ")
+        .map(Number);
+
+      array.sort((a, b) => a - b);
+      console.log(array);
+
+      let count = 0;
+      let arr = [];
+
+      while (arr.length < 3) {
+        let n = array.pop();
+        if (!arr.includes(n)) {
+          arr.push(n);
+        }
+        count += 1;
+      }
+
+      console.log(`사탕을 받을 학생은 ${count}명 입니다`);
+    </script>
+  </head>
+  <body></body>
+</html>

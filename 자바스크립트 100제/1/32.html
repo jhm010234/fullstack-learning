@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sort 구현하기</title>
+    <script>
+      let unlist = prompt("키들을 입력해주세요").split(" ").map(Number);
+      console.log(unlist);
+
+      let list = [...unlist].sort((a, b) => a - b);
+      console.log(list);
+
+      console.log(typeof unlist);
+      console.log(typeof list);
+
+      if (JSON.stringify(unlist) == JSON.stringify(list)) {
+        console.log("YES");
+      } else {
+        console.log("NO");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>대소문자 바꿔서 출력하기</title>
+    <script>
+      let sentence = prompt("문자열을 입력하세요");
+      let result = "";
+      console.log(sentence);
+
+      for (let value of sentence) {
+        if (value === value.toUpperCase()) {
+          value = value.toLowerCase();
+          result += value;
+        } else {
+          value = value.toUpperCase();
+          result += value;
+        }
+      }
+
+      console.log(result);
+    </script>
+  </head>
+  <body></body>
+</html>

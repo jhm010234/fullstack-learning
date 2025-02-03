@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반장 선거</title>
+    <script>
+      let array = prompt("뽑힌 후보들을 입력해주세요").split(" ");
+      // 원범 원범 혜원 혜원 혜원 혜원 유진 유진
+      let result = {};
+      let winner = "";
+
+      for (let index in array) {
+        let val = array[index];
+        result[val] =
+          result[val] === undefined ? 1 : (result[val] = result[val] + 1);
+      }
+
+      winner = Object.keys(result).reduce(function (a, b) {
+        return result[a] > result[b] ? a : b;
+      });
+
+      console.log(`${winner}가 총 ${result[winner]}로 뽑혔습니다.`);
+
+      //화살표 함수가 아닐 경우 return 값 무조건 넣어야 함!
+
+      //   const array = "원범 원범 혜원 혜원 혜원 혜원 유진 유진".split(" ");
+      //   let result = {};
+      //   result["홍길동"] = 2;
+      //   console.log(result);
+
+      //   let winner = "";
+
+      //   for (let index in array) {
+      //     let val = array[index];
+      //     result[val] =
+      //       result[val] === undefined ? 1 : (result[val] = result[val] + 1);
+      //   }
+
+      //   console.log(Object.keys(result));
+
+      //   winner = Object.keys(result).reduce(function (a, b) {
+      //     return result[a] > result[b] ? a : b;
+      //   });
+
+      //   console.log(
+      //     `${winner}(이)가 총 ${result[winner]}표로 반장이 되었습니다.`
+      //   );
+      //
+    </script>
+  </head>
+  <body></body>
+</html>
